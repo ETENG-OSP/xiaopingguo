@@ -75,7 +75,7 @@ function init(argument) {
     } else {
       var btn = document.getElementById('ready-btn');
       btn.className = 'btn';
-      btn.innerHTML = ' 预备，上！'
+      btn.innerHTML = '预备，上！'
       btn.style.backgroundColor = '#F00';
       btn.onclick = function() {
         closeWelcomeLayer();
@@ -290,10 +290,10 @@ function showWelcomeLayer() {
 
 function showGameScoreLayer() {
   // 增加用户微币
-  // var addCoins = Math.ceil(_gameScore / 5);
+  var addCoins = Math.ceil(_gameScore / 5);
 
   // 上传分数
-  eteng.uploadScore(_gameScore).then(function(data) {
+  eteng.uploadScore(addCoins).then(function(data) {
     // 次数限制
     if (data >= 3) {
       document.getElementById('GameScoreLayer-btn').style.display = 'none';
@@ -334,14 +334,18 @@ function backBtn() {
 
 function shareText(score) {
   var coins = Math.ceil(score / 5);
-  if (score <= 49)
-  return '呵呵！我吃掉了' + score + '个小苹果！<br/>亲，还得加油哦!';
-  if (score <= 99)
-  return '酷！我吃掉了' + score + '个小苹果！<br/>亲，不错哦！';
-  if (score <= 149)
-  return '帅呆了！我吃掉了' + score + '个小苹果！<br/>亲，爱死你了！';
-  if (score <= 199)
-  return '太牛了！我吃掉了' + score + '个小苹果！<br/>亲，奥巴马和金正恩都惊呆了！';
+  if (score <= 49) {
+    return '呵呵！我吃掉了' + score + '个小苹果！<br/>亲，还得加油哦!';
+  }
+  if (score <= 99) {
+    return '酷！我吃掉了' + score + '个小苹果！<br/>亲，不错哦！';
+  }
+  if (score <= 149) {
+    return '帅呆了！我吃掉了' + score + '个小苹果！<br/>亲，爱死你了！';
+  }
+  if (score <= 199) {
+    return '太牛了！我吃掉了' + score + '个小苹果！<br/>亲，奥巴马和金正恩都惊呆了！';
+  }
 
   return '膜拜ing！我吃掉了' + score + '个小苹果！<br/>亲，你确定你是地球人？你是宇宙第一强人，再也没人能超越你了！';
 }

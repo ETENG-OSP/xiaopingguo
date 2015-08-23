@@ -13,7 +13,7 @@ function uploadScore(score) {
       url: uploadUrl,
       data: {
         score: score,
-        openID: getOpenID()
+        openID: openID
       }
     });
   });

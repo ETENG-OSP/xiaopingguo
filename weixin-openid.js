@@ -7,7 +7,7 @@ if (!appid) {
 }
 
 getOpenID()['catch'](function() {
-  weixinAuth();
+  //weixinAuth();
 });
 
 function getParameterByName(name) {
