@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>我是你的小苹果</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, user-scalable=no, maximum-scale=1.0, width=device-width">
+  <link rel="stylesheet" href="style.css">
+  <script src="bower_components/es6-promise/dist/es6-promise.min.js"></script>
+  <script src="weixin-openid.js" data-appid="123"></script>
+  <script>
+    var i = new Date().getTime() % 5;
+    var isDesktop = navigator['userAgent'].match(/(ipad|iphone|ipod|android|windows phone)/i) ? false : true;
+    var fontunit = isDesktop ? 20 : ((window.innerWidth>window.innerHeight?window.innerHeight:window.innerWidth)/320)*10;
+    document.write('<style type="text/css">'+
+    'html,body {font-size:'+(fontunit<30?fontunit:'30')+'px;}'+
+    (isDesktop?'#welcome,#GameTimeLayer,#GameLayerBG,#GameScoreLayer.SHADE{position: absolute;}':
+    '#welcome,#GameTimeLayer,#GameLayerBG,#GameScoreLayer.SHADE{position:fixed;}@media screen and (orientation:landscape) {#landscape {display: box; display: -webkit-box; display: -moz-box; display: -ms-flexbox;}}')+
+    '</style>');
+  </script>
+  <!-- 腾讯分析 -->
+  <!-- <script src="http://tajs.qq.com/stats?sId=35420161"></script> -->
+</head>
+<body onload="init()">
+
+  <!-- Desktop Wrapper: start -->
+  <script>if (isDesktop) document.write('<div id="gameBody">')</script>
+
+  <!-- 得分页面 -->
+  <div id="GameScoreLayer" class="BBOX SHADE bgc1" style="display:none;">
+    <div style="padding:0 5%;">
+      <div id="GameScoreLayer-text"></div>
+      <br/>
+      <div id="GameScoreLayer-bast">最佳</div>
+      <br/>
+      <div id="GameScoreLayer-btn" class="BOX">
+        <div class="btn BOX-S" onclick="replayBtn()">重来</div>&nbsp;
+        <div class="btn BOX-S" onclick="share()">分享到朋友圈</div>&nbsp;
+      </div>
+      <br/>
+      <div align="center" style="font-size:0.8em;">
+        <a class="btn BOX-S" align="center" style="color:white" href="http://play.3gjj.cn/games/">更多游戏</a>
+        <br/>
+        <a class="btn BOX-S" align="center" style="color:white" href="http://mp.weixin.qq.com/s?__biz=MzAwNzQ4NzQyOQ==&mid=207029465&idx=1&sn=7b3e89d22b38e1e1337bf3a98ccdfb46#rd">关注我们</a>
+      </div>
+
+      <div align="center" style="font-size:0.8em;">
+        <br/><a  class="btn BOX-S" align="center" style="color:white" href="http://play.3gjj.cn">杭州吃喝玩乐</a>
+      </div>
+
+      <div id="GameScoreLayer-msg" class="BOX" style="display:none">每天只能吃3次小苹果，明天继续吧！</div>
+      <br/>
+    </div>
+  </div>
+
+  <!-- 欢迎页面 -->
+  <div id="welcome" class="SHADE BOX-M">
+    <div class="welcome-bg FILL"></div>
+    <div class="FILL BOX-M" style="position:absolute;top:0;left:0;right:0;bottom:0;z-index:5;">
+      <div style="margin:0 8% 0 9%;">
+        <br/><br/>
+        <div style="font-size:2.6em; color:#FEF002;">你爱小苹果吗？</div><br/>
+        <div style="font-size:2.2em; color:#fff; line-height:1.5em;">点击最下面的小苹果开始，<br/>20秒内看你能吃掉多少个小苹果！<br/></div><br/><br/>
+        <div id="ready-btn" class="btn loading" style="display:inline-block; margin:0 auto; width:8em; height:1.7em; line-height:1.7em; font-size:2.2em; color:#fff;"></div>
+        <br/><br/><br/>
+
+        <div style="font-size:1.6em;"><a style="color:#fff" href="http://play.3gjj.cn/">更多游戏</a></div></br>
+        <div style="font-size:1.6em;"><a style="color:#fff" href="http://mp.weixin.qq.com/s?__biz=MzAwNzQ4NzQyOQ==&mid=207029465&idx=1&sn=7b3e89d22b38e1e1337bf3a98ccdfb46#rd">关注我们</a></div>
+        <br/>
+        <div style="font-size:1.4em;"></div></br>
+      </div>
+    </div>
+  </div>
+
+  <!-- 横屏提示 -->
+  <div id="landscape" class="SHADE BOX-M" style="background:rgba(0,0,0,.9);">
+    <div class="welcome-bg FILL"></div>
+    <div id="landscape-text" style="color:#fff;font-size:3em;">请竖屏玩耍</div>
+  </div>
+
+  <!-- 微信分享页面 -->
+  <div id="share-wx">
+    <p style="text-align: right; padding-left: 10px;">
+      <img src="assets/2000.png" id="share-wx-img" style="max-width: 280px; padding-right: 25px;">
+    </p>
+  </div>
+
+  <!-- Desktop Wrapper: end -->
+  <script>if (isDesktop) document.write('</div>')</script>
+
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/SoundJS/lib/soundjs-0.6.1.combined.js"></script>
+  <script src="eteng.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

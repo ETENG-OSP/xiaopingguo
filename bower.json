@@ -1,0 +1,17 @@
+{
+  "name": "xiaopingguo",
+  "version": "0.0.0",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "SoundJS": "~0.6.1",
+    "es6-promise": "https://github.com/jakearchibald/es6-promise.git#~3.0.2"
+  }
+}
