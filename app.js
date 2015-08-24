@@ -82,6 +82,13 @@ function init(argument) {
       }
     }
   }, 500);
+
+  // 排名
+  eteng.getRank().then(function(results) {
+    var message = document.getElementById('rank-message');
+    var percent = 1 - Math.ceil(results.rank / results.total * 1000) / 10;
+    message.innerHTML = '您的排名是：' + results.rank + '<br/>击败了全国' + percent + '%的对手';
+  });
 }
 
 function winOpen() {
@@ -134,7 +141,7 @@ function countBlockSize() {
 function gameInit() {
   createjs.Sound.registerSound({src: 'assets/1.mp3', id: 'err'});
   createjs.Sound.registerSound({src: 'assets/2.mp3', id: 'end'});
-  createjs.Sound.registerSound({src: 'assets/3.mp3', id: 'tap'});
+  createjs.Sound.registerSound({src: 'assets/4.mp3', id: 'tap'});
   gameRestart();
 }
 
@@ -293,12 +300,17 @@ function showGameScoreLayer() {
   var addCoins = Math.ceil(_gameScore / 5);
 
   // 上传分数
-  eteng.uploadScore(addCoins).then(function(data) {
+  eteng.uploadScore(_gameScore).then(function(data) {
     // 次数限制
-    if (data >= 3) {
-      document.getElementById('GameScoreLayer-btn').style.display = 'none';
-      document.getElementById('GameScoreLayer-msg').style.display = 'block';
-    }
+    // if (data >= 3) {
+    //   document.getElementById('GameScoreLayer-btn').style.display = 'none';
+    //   document.getElementById('GameScoreLayer-msg').style.display = 'block';
+    // }
+    return eteng.getRank();
+  }).then(function(results) {
+    var message = document.getElementById('rank-ending-message');
+    var percent = 1 - Math.ceil(results.rank / results.total * 1000) / 10;
+    message.innerHTML = '您的排名是：' + results.rank + '<br/>击败了全国' + percent + '%的对手';
   });
 
   var l = document.getElementById('GameScoreLayer');

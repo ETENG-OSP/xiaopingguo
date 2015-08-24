@@ -136,7 +136,7 @@ body {
 .t4,
 .t5 {
   background-size: auto 100%;
-  background-image: url(assets/640.png);
+  background-image: url(assets/2.png);
 }
 
 .tt1,
@@ -145,7 +145,7 @@ body {
 .tt4,
 .tt5 {
   background-size: auto 86%;
-  background-image: url(assets/l.png);
+  background-image: url(assets/1.png);
 }
 
 .bl {
@@ -252,4 +252,14 @@ body {
   height: 100%;
   z-index: 10000;
   display: none;
+}
+
+.message {
+  color: white;
+  font-size: 1.5em;
+}
+
+.ending-message {
+  color: white;
+  font-size: .7em;
 }

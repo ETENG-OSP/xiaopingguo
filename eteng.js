@@ -1,5 +1,5 @@
-var uploadUrl = '//127.0.0.1:3001/api/score';
-var rankUrl = '//127.0.0.1:3001/api/rank';
+var uploadUrl = '//192.168.0.177:3001/api/score';
+var rankUrl = '//192.168.0.177:3001/api/rank';
 
 window.eteng = {
   uploadScore: uploadScore,
@@ -11,10 +11,11 @@ function uploadScore(score) {
   return $.ajax({
     method: 'PUT',
     url: uploadUrl,
-    data: {
+    contentType: 'application/json',
+    data: JSON.stringify({
       score: score,
-      openID: openID
-    }
+      openid: openID
+    })
   });
 }
 
@@ -23,7 +24,7 @@ function getRank() {
   return $.ajax({
     url: rankUrl,
     data: {
-      openID: openID
+      openid: openID
     }
   });
 }
