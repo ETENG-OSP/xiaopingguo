@@ -5,8 +5,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, user-scalable=no, maximum-scale=1.0, width=device-width">
   <link rel="stylesheet" href="style.css">
-  <script src="bower_components/es6-promise/dist/es6-promise.min.js"></script>
-  <script src="weixin-openid.js" data-appid="123"></script>
   <script>
     var i = new Date().getTime() % 5;
     var isDesktop = navigator['userAgent'].match(/(ipad|iphone|ipod|android|windows phone)/i) ? false : true;
@@ -84,12 +82,13 @@
     </p>
   </div>
 
-  <!-- Desktop Wrapper: end -->
-  <script>if (isDesktop) document.write('</div>')</script>
-
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/SoundJS/lib/soundjs-0.6.1.combined.js"></script>
   <script src="eteng.js"></script>
   <script src="app.js"></script>
+
+  <!-- Desktop Wrapper: end -->
+  <script>if (isDesktop) document.write('</div>')</script>
+
 </body>
 </html>

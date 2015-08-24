@@ -19,23 +19,23 @@ document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
 
   WeixinJSBridge.on('menu:share:appmessage', function(argv) {
     WeixinJSBridge.invoke('sendAppMessage', {
-      "img_url": window.shareData.imgUrl,
-      "link": window.shareData.timeLineLink,
-      "desc": window.shareData.tContent,
-      "title": window.shareData.tTitle
+      'img_url': window.shareData.imgUrl,
+      'link': window.shareData.timeLineLink,
+      'desc': window.shareData.tContent,
+      'title': window.shareData.tTitle
     }, function(res) {
       document.location.href = mebtnopenurl;
-    })
+    });
   });
 
   WeixinJSBridge.on('menu:share:timeline', function(argv) {
     WeixinJSBridge.invoke('shareTimeline', {
-      "img_url": window.shareData.imgUrl,
-      "img_width": "640",
-      "img_height": "640",
-      "link": window.shareData.timeLineLink,
-      "desc": window.shareData.tContent,
-      "title": window.shareData.tTitle
+      'img_url': window.shareData.imgUrl,
+      'img_width': '640',
+      'img_height': '640',
+      'link': window.shareData.timeLineLink,
+      'desc': window.shareData.tContent,
+      'title': window.shareData.tTitle
     }, function(res) {
       document.location.href = mebtnopenurl;
     });
@@ -65,17 +65,17 @@ function init(argument) {
   }
   gameInit();
   window.addEventListener('resize', refreshSize, false);
-  var rtnMsg = "true";
+  var rtnMsg = 'true';
 
   setTimeout(function() {
     if (rtnMsg == 'false') {
       var btn = document.getElementById('ready-btn');
       btn.className = 'btn';
-      btn.innerHTML = '您今天已经吃太多苹果啦，请明天继续！'
+      btn.innerHTML = '您今天已经吃太多苹果啦，请明天继续！';
     } else {
       var btn = document.getElementById('ready-btn');
       btn.className = 'btn';
-      btn.innerHTML = '预备，上！'
+      btn.innerHTML = '预备，上！';
       btn.style.backgroundColor = '#F00';
       btn.onclick = function() {
         closeWelcomeLayer();
@@ -132,9 +132,9 @@ function countBlockSize() {
 }
 
 function gameInit() {
-  createjs.Sound.registerSound({src:'assets/1.mp3', id:'err'});
-  createjs.Sound.registerSound({src:'assets/2.mp3', id:'end'});
-  createjs.Sound.registerSound({src:'assets/3.mp3', id:'tap'});
+  createjs.Sound.registerSound({src: 'assets/1.mp3', id: 'err'});
+  createjs.Sound.registerSound({src: 'assets/2.mp3', id: 'end'});
+  createjs.Sound.registerSound({src: 'assets/3.mp3', id: 'tap'});
   gameRestart();
 }
 
@@ -172,7 +172,7 @@ function gameTime() {
     GameTimeLayer.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;时间到！';
     gameOver();
     GameLayerBG.className += ' flash';
-    createjs.Sound.play("end");
+    createjs.Sound.play('end');
   }else {
     GameTimeLayer.innerHTML = creatTimeText(_gameTimeNum);
   }
@@ -180,7 +180,7 @@ function gameTime() {
 
 function creatTimeText(n) {
   var text = (100000 + n + '').substr(-4, 4);
-  text = '&nbsp;&nbsp;' + text.substr(0, 2) + "'" + text.substr(2) + "''"
+  text = '&nbsp;&nbsp;' + text.substr(0, 2) + '\'' + text.substr(2) + '\'\'';
   return text;
 }
 

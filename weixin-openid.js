@@ -6,21 +6,21 @@ if (!appid) {
   throw new Error('appid is not set');
 }
 
-getOpenID()['catch'](function() {
-  //weixinAuth();
+getOpenID().catch(function() {
+  weixinAuth();
 });
 
 function getParameterByName(name) {
   name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-  var regex = new RegExp('[\\?&]' + name + '=([^&#]*)'),
-    results = regex.exec(window.location.search);
-  return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, " "));
+  var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+  var results = regex.exec(window.location.search);
+  return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 }
 
 function encodeQueryString(params) {
   return Object
     .keys(params)
-    .map(function(key) {return key + '=' + encodeURIComponent(params[key])})
+    .map(function(key) {return key + '=' + encodeURIComponent(params[key]);})
     .join('&');
 }
 
@@ -59,7 +59,6 @@ function getOpenID() {
 
 function requestToken(code) {
   var url = '/api/token?code=' + code;
-
   return new Promise(function(resolve, reject) {
     var req = new XMLHttpRequest();
     req.open('GET', url);

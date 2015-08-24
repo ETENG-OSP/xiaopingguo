@@ -79,7 +79,7 @@ body {
 }
 
 #welcome {
-  background-color:rgba(0,0,0,.8);
+  background-color:rgba(0, 0, 0, .8);
   text-align: center;
   font-weight: bold;
   overflow: hidden;
@@ -91,7 +91,7 @@ body {
   left:0;
   right:0;
   bottom:0;
-  background: url(./81345eabgw1ei0jyahwhwj20gp0qzt9s.jpg) center center no-repeat;
+  background: url(assets/81345eabgw1ei0jyahwhwj20gp0qzt9s.jpg) center center no-repeat;
   background-size:100% 100%;
   opacity: .4;
   overflow: hidden;
@@ -176,9 +176,9 @@ body {
 }
 
 * {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-  -ms-tap-highlight-color: rgba(0,0,0,0);
-  tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -ms-tap-highlight-color: rgba(0, 0, 0, 0);
+  tap-highlight-color: rgba(0, 0, 0, 0);
   -ms-user-select: none;
 }
 
@@ -223,7 +223,7 @@ body {
 #GameScoreLayer-share .btn {
   text-align: center;
   font-size:1.1em;
-  background-color: rgba(0,0,0,.3);
+  background-color: rgba(0, 0, 0, .3);
   height:2em;
   line-height:2em;
 }
@@ -244,7 +244,7 @@ body {
 }
 
 #share-wx {
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, .8);
   position: absolute;
   top: 0px;
   left: 0px;
